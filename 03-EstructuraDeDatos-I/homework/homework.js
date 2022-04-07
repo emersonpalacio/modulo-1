@@ -7,14 +7,16 @@ function nFactorial(n) {
   // devolvé el factorial de n (n!)
   // ej:
   // el factorial de 3 es 6 (3 * 2 * 1)
-  if(n > -1 && n < 2) {return 1} else {
-  if(n < 0)return 0}
+  
+  if (n > -1 && n < 2) return 1 
+  else 
+  if (n < 0) return 0
    
     return n * nFactorial(n - 1)     // aca es donde la recursión, es la junta de parametro con la funcion que tiene ese parametro
   
 
 }
-console.log(nFactorial(4))
+console.log(nFactorial(3))
 function nFibonacci(n) {
   // Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
   // Retorna el enésimo numero de la serie
@@ -22,7 +24,7 @@ function nFibonacci(n) {
   // nFibonacci(1) // 1 // el elemento 1 es 1
   // nFibonacci(6) // 1 // el elemento 6 es 8
 
- if (n > -1 && n < 2) {return n}                    // este seria el punto de corte
+ if (n > -1 && n < 2) return n                    // este seria el punto de corte
  return nFibonacci(n - 1) + nFibonacci(n-2)         // aca la recursion se junta el parametro en esa posicion con la funcion que tiene ese parametro
  
  
@@ -36,30 +38,7 @@ console.log(nFibonacci(4))
 // dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
 
-// class Queue {
 
-//   constructor() {
-
-//     this.queue = []
-//      }
-
-//         enqueue(valor) {
-      
-//       this.queue.push(valor)
-//      }
-//      size() {
-
-//        return this.queue.length
-
-//      }
-
-//      dequeue() {
-//       if(this.queue.length === 0) return undefined
-
-//       return this.queue.shift();
-
-//     }
-// }
 
 function Queue() {
   this.queue = []
@@ -69,7 +48,7 @@ Queue.prototype.enqueue = function(valor) {
     this.queue.push(valor)
 }
 Queue.prototype.dequeue = function(){
-  if(this.queue.length === 0) return "undefined"
+  //if(this.queue.length === 0) return "undefined"
   return this.queue.shift()
 
 }

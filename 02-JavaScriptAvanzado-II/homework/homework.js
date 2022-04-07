@@ -15,9 +15,9 @@ function counter() {
 // }
 
 
-  let contador = 1
+  let creciente = 1
 return function() {
-    return contador++
+    return creciente++
    }
 }
 

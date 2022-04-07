@@ -16,9 +16,16 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    
+    var suma = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (Array.isArray(array[i])) {
+            suma += countArray(array[i]);
+        } else {
+            suma += array[i];
+        }
+    }
+    return suma;
 }
-
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
 // cualquier tipo de dato, determinar la cantidad de propiedades de objetos en cualquier nivel, ya sea el inicial
@@ -39,7 +46,17 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
+   let counter = 0
+   for(let key in obj) {
+       counter++
+      if(typeof obj[key] === "object") {
+          if(!Array.isArray(obj[key])){
+              counter += countProps(obj[key])
+          }
+      }
+   }
 
+  return counter
 }
 
 
@@ -53,8 +70,18 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
+  let contador = 0
+  let current = this.head
+    while(current) {
+        if(isNaN(Number(current.value))){
+            contador++
+            current.value = 'Kiricocho'
+        }
+        current = current.next
+    }
+    return contador
+  }
 
-}
 
 
 // Implementar la función mergeQueues que a partir de dos queues recibidas por parametro
@@ -67,7 +94,14 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
-
+   let queue = new Queue()
+   while(queueOne.size() || queueTwo.size()){
+       let que1 = queueOne.dequeue()
+       let que2 = queueTwo.dequeue()
+       if(que1) queueOne.enqueue(que1)
+       if(que2) queueTwo.enqueue(que2)
+   }
+   return queue
 }
 
 
@@ -82,14 +116,29 @@ var mergeQueues = function(queueOne, queueTwo) {
 
 var closureMult = function(multiplier) {
     // Tu código aca:
-
+   return function(num) {
+    return num*multiplier
+   }
 }
+var tablas5 = closureMult(5)
+tablas5(1)
+tablas5(2)
+tablas5(3)
+tablas5(4)
+tablas5(5)
+
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
 BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
+     if(!this.left && !this.right) return this.value     
+     if(!this.left && this.right) return this.value + this.right
+     if(this.left && !this.right) return this.value + this.left
+     if(this.left && this.right) return this.value + this.left +this.right
+    while(this.value === 1) {
 
+    }
 }
 
 module.exports = {
